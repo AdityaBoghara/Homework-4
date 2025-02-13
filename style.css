@@ -1,23 +1,50 @@
+/*
+Program name: style.css
+Author: Aditya Rajeshbhai Boghara
+Date created: 01/27/2025
+Date last edited: 
+Version: 2.0
+Description: Styles for patient registration form.
+*/
+
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+  font-family: Georgia;
+  line-height: 2;
+  font-size: 20px;
   margin: 0;
   padding: 0;
   background-color: #f4f4f9;
   color: #333;
 }
 
+/* Header Styles */
 header .banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #0078d4;
   color: white;
   padding: 1rem;
   text-align: center;
 }
 
-header .logo {
+header .banner .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .banner img.logo {
   height: 100px;
-  vertical-align: middle;
+}
+
+header .banner h1 {
+  margin: 0;
+}
+
+header .banner p {
+  margin-top: 5px;
 }
 
 /* Main Form Styles */

@@ -1,26 +1,59 @@
+<!--
+Program name: patient-form.html
+Author: Aditya Rajeshbhai Boghara
+Date created: 01/27/2025
+Date last edited: 
+Version: 2.0
+Description: A patient registration form for capturing demographic and health-related data.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title of the page -->
     <title>Thank you</title>
+    <!-- Link to the external stylesheet for styling -->
     <link href="thankyou.css" rel="stylesheet" />
+    <script>
+      // Dynamic date script
+      function displayDate() {
+        const options = {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        };
+        document.getElementById("currentDate").textContent =
+          new Date().toLocaleDateString("en-US", options);
+      }
+    </script>
   </head>
-  <body>
+  <body onload="displayDate()">
     <header>
       <div class="banner">
-        <img src="patelMedical.png" alt="Company Logo" class="logo" />
-        <h1>Patel Medical</h1>
+        <div class="logo-container">
+          <img src="patelMedical.png" alt="Company Logo" class="logo" />
+          <h1>Patel Medical</h1>
+        </div>
+        <p>Today is: <span id="currentDate"></span></p>
       </div>
     </header>
+
     <main id="main">
+      <!-- Main content section displaying the thank you message -->
       <h2>Thank You for Your Submission!</h2>
       <p>We appreciate your time. Our team will get back to you soon.</p>
+      <button onclick="window.location.href='index.html'">Get to Form</button>
     </main>
 
     <footer>
+      <!-- Footer section with company address and contact button -->
       <div class="footer">
+        <!-- Company address -->
         <p>Patel Medical | PO BOX 18881 | Sugar Land, TX 77496</p>
+        <!-- Button to trigger contact information alert -->
         <button onclick="alert('Contact Us at: patel@medical.com')">
           Contact Us
         </button>

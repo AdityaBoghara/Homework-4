@@ -1,3 +1,14 @@
+/*
+Program name: style.css
+Author: Aditya Rajeshbhai Boghara
+Date created: 01/27/2025
+Date last edited: 
+Version: 2.0
+Description: Styles for patient registration form.
+*/
+
+/* General Styles */
+
 /* Reset default margin and padding */
 * {
   margin: 0;
@@ -8,12 +19,24 @@
 /* Make the entire page fill the viewport */
 html,
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f9;
-  color: #333;
+  body {
+    font-family: Georgia;
+    line-height: 2;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+}
+
+button {
+  background: #0078d4;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
 /* Header Section */
