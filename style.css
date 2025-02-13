@@ -1,0 +1,120 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+header .banner {
+  background-color: #0078d4;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+header .logo {
+  height: 100px;
+  vertical-align: middle;
+}
+
+/* Main Form Styles */
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+  text-align: center;
+  color: #0078d4;
+  margin-bottom: 1rem;
+}
+
+form table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+form td {
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+form label {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input {
+  width: calc(70% - 10px);
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form select,
+form textarea,
+form button {
+  width: calc(70% - 10px);
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form input[type="radio"],
+form input[type="checkbox"] {
+  width: auto;
+  margin-right: 5px;
+}
+
+form button {
+  cursor: pointer;
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+form .button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+form button:hover {
+  background-color: #005bb5;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  background: #333;
+  color: white;
+  padding: 10px 0;
+  margin-top: 30px;
+}
+
+footer button {
+  background: #0078d4;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+footer button:hover {
+  background: #005bb5;
+}

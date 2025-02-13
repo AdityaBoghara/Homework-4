@@ -1,0 +1,74 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Make the entire page fill the viewport */
+html,
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Header Section */
+header .banner {
+  background-color: #0078d4;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+header .logo {
+  height: 100px;
+  vertical-align: middle;
+}
+
+/* Main Content */
+#main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+#main h2 {
+  font-size: 28px;
+  color: #004080;
+  margin-bottom: 10px;
+}
+
+#main p {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  background: #333;
+  color: white;
+  padding: 10px 0;
+  margin-top: 30px;
+}
+
+footer button {
+  background: #0078d4;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+footer button:hover {
+  background: #005bb5;
+}
