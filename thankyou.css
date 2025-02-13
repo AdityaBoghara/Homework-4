@@ -2,7 +2,7 @@
 Program name: style.css
 Author: Aditya Rajeshbhai Boghara
 Date created: 01/27/2025
-Date last edited: 
+Date last edited: Feb 13, 2025
 Version: 2.0
 Description: Styles for patient registration form.
 */
@@ -29,8 +29,7 @@ body {
     color: #333;
   }
 }
-
-button {
+x button {
   background: #0078d4;
   border: none;
   color: white;
