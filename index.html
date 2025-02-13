@@ -3,7 +3,7 @@ Program name: patient-form.html
 Author: Aditya Rajeshbhai Boghara
 Date created: 01/27/2025
 Date last edited: 
-Version: 1.0
+Version: 2.0
 Description: A patient registration form for capturing demographic and health-related data.
 -->
 
@@ -27,6 +27,16 @@ Description: A patient registration form for capturing demographic and health-re
           new Date().toLocaleDateString("en-US", options);
       }
     </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevents default form submission
+            window.location.href = "thankyou.html"; // Redirects to thank you page
+          });
+      });
+    </script>
   </head>
   <body onload="displayDate()">
     <header>
@@ -39,7 +49,7 @@ Description: A patient registration form for capturing demographic and health-re
 
     <main>
       <h2>Patient Registration Form</h2>
-      <form action="./thankyou.html" id="form" method="post">
+      <form action="./thankyou.html" id="form">
         <table>
           <!-- Name Section -->
           <tr>
