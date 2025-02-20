@@ -3,7 +3,7 @@ Program name: patient-form.html
 Author: Aditya Rajeshbhai Boghara
 Date created: 01/27/2025
 Date last edited: FEB 20Th 2025
-Version: 3.0
+Version: 3.1
 Description: A patient registration form for capturing demographic and health-related data.
 -->
 
@@ -68,6 +68,7 @@ Description: A patient registration form for capturing demographic and health-re
                 required
                 placeholder="First Name"
                 title="Enter your first name (1-30 characters, letters, apostrophes, and dashes only)."
+                pattern="^[A-Za-z' -]{1,30}$"
               />
             </td>
           </tr>
@@ -81,6 +82,7 @@ Description: A patient registration form for capturing demographic and health-re
                 maxlength="1"
                 placeholder="Middle Initial"
                 title="Enter your middle initial (1 letter only, optional)."
+                pattern="^[A-Z]{1}$"
               />
             </td>
           </tr>
@@ -95,6 +97,7 @@ Description: A patient registration form for capturing demographic and health-re
                 required
                 placeholder="Last Name"
                 title="Enter your last name (1-30 characters, letters, apostrophes, numbers (2-5, e.g., 3rd), and dashes only)."
+                pattern="^[A-Za-z' -]{1,30}$"
               />
             </td>
           </tr>
@@ -109,6 +112,7 @@ Description: A patient registration form for capturing demographic and health-re
                 name="phone"
                 placeholder="(713)555-1212"
                 title="Enter your phone number in the format XXX-XXX-XXXX."
+                pattern="^(\d{3}-\d{3}-\d{4}|\d{10})$"
               />
             </td>
           </tr>
@@ -123,6 +127,7 @@ Description: A patient registration form for capturing demographic and health-re
                 name="dob"
                 required
                 title="Enter your date of birth (MM/DD/YYYY). Cannot be in the future or more than 120 years ago."
+                pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(19|20)\d{2}$"
               />
             </td>
           </tr>
@@ -137,6 +142,7 @@ Description: A patient registration form for capturing demographic and health-re
                 required
                 placeholder="SSN"
                 title="Enter your Social Security Number (SSN) in the format XXX-XX-XXXX. Field is required and will be hidden."
+                pattern="^\d{3}-\d{2}-\d{4}$"
               />
             </td>
           </tr>
@@ -261,6 +267,7 @@ Description: A patient registration form for capturing demographic and health-re
                 required
                 placeholder="Zip Code"
                 title="Enter your zip code (5 digits, or 9 digits in the format XXXXX-XXXX)."
+                pattern="^\d{5}(-\d{4})?$"
               />
             </td>
           </tr>
@@ -276,6 +283,7 @@ Description: A patient registration form for capturing demographic and health-re
                 required
                 placeholder="Email"
                 title="Enter your email in the format name@domain.tld."
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
               />
             </td>
           </tr>
@@ -446,6 +454,7 @@ Description: A patient registration form for capturing demographic and health-re
                 required
                 placeholder="password"
                 title="Enter a strong password (8-30 characters, at least 1 uppercase letter, 1 lowercase letter, 1 digit, and 1 special character, excluding quotes)."
+                pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&^#])[A-Za-z\d@$!%*?&^#]{8,30}$"
               />
             </td>
           </tr>
@@ -459,6 +468,7 @@ Description: A patient registration form for capturing demographic and health-re
                 required
                 placeholder="Confirm Password"
                 title="Re-enter your password to confirm. Must match the first password field."
+                pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&^#])[A-Za-z\d@$!%*?&^#]{8,30}$"
               />
             </td>
           </tr>
