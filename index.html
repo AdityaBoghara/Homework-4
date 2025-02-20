@@ -2,8 +2,8 @@
 Program name: patient-form.html
 Author: Aditya Rajeshbhai Boghara
 Date created: 01/27/2025
-Date last edited: 
-Version: 2.0
+Date last edited: FEB 20Th 2025
+Version: 3.0
 Description: A patient registration form for capturing demographic and health-related data.
 -->
 
@@ -14,6 +14,7 @@ Description: A patient registration form for capturing demographic and health-re
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Patient Registration Form</title>
     <link href="style.css" rel="stylesheet" />
+    <script src="./homework2.js"></script>
     <script>
       // Dynamic date script
       function displayDate() {
@@ -51,11 +52,13 @@ Description: A patient registration form for capturing demographic and health-re
 
     <main>
       <h2>Patient Registration Form</h2>
-      <form id="form">
+      <form id="form" name="form">
         <table>
           <!-- Name Section -->
           <tr>
-            <td><label for="firstName">First Name:</label></td>
+            <td>
+              <label for="firstName">First Name:</label>
+            </td>
             <td>
               <input
                 type="text"
@@ -64,6 +67,7 @@ Description: A patient registration form for capturing demographic and health-re
                 maxlength="30"
                 required
                 placeholder="First Name"
+                title="Enter your first name (1-30 characters, letters, apostrophes, and dashes only)."
               />
             </td>
           </tr>
@@ -76,6 +80,7 @@ Description: A patient registration form for capturing demographic and health-re
                 name="middleInitial"
                 maxlength="1"
                 placeholder="Middle Initial"
+                title="Enter your middle initial (1 letter only, optional)."
               />
             </td>
           </tr>
@@ -89,6 +94,7 @@ Description: A patient registration form for capturing demographic and health-re
                 maxlength="30"
                 required
                 placeholder="Last Name"
+                title="Enter your last name (1-30 characters, letters, apostrophes, numbers (2-5, e.g., 3rd), and dashes only)."
               />
             </td>
           </tr>
@@ -102,6 +108,7 @@ Description: A patient registration form for capturing demographic and health-re
                 id="phone"
                 name="phone"
                 placeholder="(713)555-1212"
+                title="Enter your phone number in the format XXX-XXX-XXXX."
               />
             </td>
           </tr>
@@ -109,7 +116,15 @@ Description: A patient registration form for capturing demographic and health-re
           <!-- DOB and SSN -->
           <tr>
             <td><label for="dob">Date of Birth:</label></td>
-            <td><input type="date" id="dob" name="dob" required /></td>
+            <td>
+              <input
+                type="date"
+                id="dob"
+                name="dob"
+                required
+                title="Enter your date of birth (MM/DD/YYYY). Cannot be in the future or more than 120 years ago."
+              />
+            </td>
           </tr>
           <tr>
             <td><label for="ssn">Social Security:</label></td>
@@ -121,6 +136,7 @@ Description: A patient registration form for capturing demographic and health-re
                 maxlength="11"
                 required
                 placeholder="SSN"
+                title="Enter your Social Security Number (SSN) in the format XXX-XX-XXXX. Field is required and will be hidden."
               />
             </td>
           </tr>
@@ -136,6 +152,7 @@ Description: A patient registration form for capturing demographic and health-re
                 maxlength="30"
                 required
                 placeholder="Address 1"
+                title="Enter your street address (2-30 characters). Required."
               />
             </td>
           </tr>
@@ -148,6 +165,7 @@ Description: A patient registration form for capturing demographic and health-re
                 name="address2"
                 maxlength="30"
                 placeholder="Address 2"
+                title="Enter additional address details (2-30 characters). Optional."
               />
             </td>
           </tr>
@@ -161,13 +179,19 @@ Description: A patient registration form for capturing demographic and health-re
                 maxlength="30"
                 required
                 placeholder="City"
+                title="Enter your city name (2-30 characters)."
               />
             </td>
           </tr>
           <tr>
             <td><label for="state">State:</label></td>
             <td>
-              <select id="state" name="state" required>
+              <select
+                id="state"
+                name="state"
+                required
+                title="Select your state from the dropdown. Required."
+              >
                 <option value="">Select State</option>
                 <!-- Options for states -->
                 <option value="">Select a State</option>
@@ -236,6 +260,7 @@ Description: A patient registration form for capturing demographic and health-re
                 maxlength="10"
                 required
                 placeholder="Zip Code"
+                title="Enter your zip code (5 digits, or 9 digits in the format XXXXX-XXXX)."
               />
             </td>
           </tr>
@@ -250,6 +275,7 @@ Description: A patient registration form for capturing demographic and health-re
                 name="email"
                 required
                 placeholder="Email"
+                title="Enter your email in the format name@domain.tld."
               />
             </td>
           </tr>
@@ -263,6 +289,7 @@ Description: A patient registration form for capturing demographic and health-re
                 name="symptoms"
                 rows="3"
                 cols="50"
+                title="Enter any additional details or symptoms (optional). Avoid using double quotes to prevent formatting issues."
               ></textarea>
             </td>
           </tr>
@@ -276,6 +303,7 @@ Description: A patient registration form for capturing demographic and health-re
                 id="chickenpox"
                 name="history"
                 value="chickenpox"
+                title="Check all that apply (e.g., Chicken Pox, Measles, Covid-19, etc.)."
               />
               <label for="chickenpox">Chicken Pox</label><br />
               <input
@@ -283,15 +311,23 @@ Description: A patient registration form for capturing demographic and health-re
                 id="measles"
                 name="history"
                 value="measles"
+                title="Check all that apply (e.g., Chicken Pox, Measles, Covid-19, etc.)."
               />
               <label for="measles">Measles</label><br />
-              <input type="checkbox" id="covid" name="history" value="covid" />
+              <input
+                type="checkbox"
+                id="covid"
+                name="history"
+                value="covid"
+                title="Check all that apply (e.g., Chicken Pox, Measles, Covid-19, etc.)."
+              />
               <label for="covid">Covid-19</label><br />
               <input
                 type="checkbox"
                 id="smallpox"
                 name="history"
                 value="smallpox"
+                title="Check all that apply (e.g., Chicken Pox, Measles, Covid-19, etc.)."
               />
               <label for="smallpox">Small Pox</label><br />
               <input
@@ -299,6 +335,7 @@ Description: A patient registration form for capturing demographic and health-re
                 id="tetanus"
                 name="history"
                 value="tetanus"
+                title="Check all that apply (e.g., Chicken Pox, Measles, Covid-19, etc.)."
               />
               <label for="tetanus">Tetanus</label>
             </td>
@@ -331,6 +368,7 @@ Description: A patient registration form for capturing demographic and health-re
                 id="noForInsurance"
                 name="insurance"
                 value="no"
+                title="Select one option that applies to you."
                 required
               />
               <label for="No">No</label>
@@ -338,6 +376,7 @@ Description: A patient registration form for capturing demographic and health-re
                 type="radio"
                 id="yesForInsurance"
                 name="insurance"
+                title="Select one option that applies to you."
                 value="yes"
               />
               <label for="Yes">Yes</label>
@@ -352,6 +391,7 @@ Description: A patient registration form for capturing demographic and health-re
                 id="noForVaccine"
                 name="vaccine"
                 value="no"
+                title="Select one option that applies to you."
                 required
               />
               <label for="No">No</label>
@@ -360,6 +400,7 @@ Description: A patient registration form for capturing demographic and health-re
                 id="yesForVaccine"
                 name="vaccine"
                 value="yes"
+                title="Select one option that applies to you."
               />
               <label for="Yes">Yes</label>
             </td>
@@ -369,7 +410,14 @@ Description: A patient registration form for capturing demographic and health-re
           <tr>
             <td><label for="health">Health Scale:</label></td>
             <td>
-              <input type="range" id="health" name="health" min="1" max="10" />
+              <input
+                type="range"
+                id="health"
+                name="health"
+                min="1"
+                max="10"
+                title="Move the slider to select your desired salary or home price range."
+              />
             </td>
           </tr>
 
@@ -384,6 +432,7 @@ Description: A patient registration form for capturing demographic and health-re
                 maxlength="20"
                 required
                 placeholder="User ID"
+                title="Enter a desired username (5-30 characters, starting with a letter, only letters, numbers, underscores, and dashes allowed. No spaces)."
               />
             </td>
           </tr>
@@ -396,6 +445,7 @@ Description: A patient registration form for capturing demographic and health-re
                 name="password"
                 required
                 placeholder="password"
+                title="Enter a strong password (8-30 characters, at least 1 uppercase letter, 1 lowercase letter, 1 digit, and 1 special character, excluding quotes)."
               />
             </td>
           </tr>
@@ -408,6 +458,7 @@ Description: A patient registration form for capturing demographic and health-re
                 name="confirmPassword"
                 required
                 placeholder="Confirm Password"
+                title="Re-enter your password to confirm. Must match the first password field."
               />
             </td>
           </tr>
@@ -421,11 +472,18 @@ Description: A patient registration form for capturing demographic and health-re
                 <button id="submitButton" type="submit" value="submit">
                   Submit
                 </button>
+                <input
+                  type="button"
+                  id="getdata"
+                  value="Get Data V1"
+                  onclick="getTheData()"
+                />
               </div>
             </td>
           </tr>
         </table>
       </form>
+      <div id="outputformdata"></div>
     </main>
 
     <footer>
