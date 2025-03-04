@@ -145,3 +145,13 @@ footer button {
 footer button:hover {
   background: #005bb5;
 }
+
+table.form {
+  width: 70%;
+  opacity: 0.9;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(255, 255, 255);
+  padding: 0px;
+  border-spacing: 00px;
+  color: rgb(251, 0, 0);
+}

@@ -78,3 +78,158 @@ function getTheData() {
     document.getElementById("outputformdata").innerHTML = formoutput;
   }
 }
+
+function passwordentry() {
+  let passwordInput = document.getElementById("password").value;
+  let messageElement = document.getElementById("password_message1");
+  let userID = document.getElementById("userId").value.toLowerCase();
+  let messages = [];
+
+  if (!/[a-z]/.test(passwordInput))
+    messages.push("Enter at least 1 lowercase letter");
+  if (!/[A-Z]/.test(passwordInput))
+    messages.push("Enter at least 1 uppercase letter");
+  if (!/[0-9]/.test(passwordInput)) messages.push("Enter at least 1 number");
+  if (!/[!@#$%&*\-_\\.+()]/.test(passwordInput))
+    messages.push("Enter at least 1 special character");
+  if (passwordInput.length < 8)
+    messages.push("Enter a minimum of 8 characters");
+
+  if (passwordInput.toLowerCase().includes(userID)) {
+    messages.push("Password cannot contain your User ID.");
+  }
+
+  messageElement.innerHTML =
+    messages.length > 0
+      ? messages.join("<br>")
+      : "Password meets all requirements";
+  messageElement.style.display = "block"; // Ensure the message element is visible
+}
+
+// Check that both passwords match
+function checkpassword2() {
+  x = document.getElementById("password").value;
+  y = document.getElementById("confirmPassword").value;
+
+  if (x == y) {
+    document.getElementById("password2_text").innerHTML = "Passwords match!";
+    document.getElementById("password2_text").style.color = "green";
+  } else {
+    document.getElementById("password2_text").innerHTML =
+      "Passwords DO NOT match!";
+    document.getElementById("password2_text").style.color = "red";
+    error_flag = 1;
+  }
+}
+
+function checkfirstname() {
+  x = document.getElementById("firstName").value;
+  if (x.length < 2) {
+    document.getElementById("firstname_message").innerHTML =
+      "Invalid name... too short.";
+    error_flag = 1;
+  } else {
+    if (x.match(/[a-zA-Z3-5'-]+$/)) {
+      document.getElementById("firstname_message").innerHTML = "";
+    } else {
+      document.getElementById("firstname_message").innerHTML =
+        "Invalid characters in name.";
+      error_flag = 1;
+    }
+  }
+}
+function checkmiddle() {
+  x = document.getElementById("middleInitial").value;
+  if (x.length > 0) {
+    if (x.match(/[a-zA-Z ]/)) {
+      document.getElementById("middlename_message").innerHTML = "";
+    } else {
+      document.getElementById("middlename_message").innerHTML =
+        "Invalid characters in name.";
+      error_flag = 1;
+    }
+  }
+}
+function checklastname() {
+  x = document.getElementById("lastName").value;
+  if (x.length < 2) {
+    document.getElementById("lastname_message").innerHTML =
+      "Invalid name... too short.";
+    error_flag = 1;
+  } else {
+    if (x.match(/[a-zA-Z3-5'-]+$/)) {
+      document.getElementById("lastname_message").innerHTML = "";
+    } else {
+      document.getElementById("lastname_message").innerHTML =
+        "Invalid characters in name.";
+      error_flag = 1;
+    }
+  }
+}
+
+function checkaddr1() {
+  x = document.getElementById("address1").value;
+  console.log(x.value);
+  console.log(x.length);
+  if (x.length < 2) {
+    document.getElementById("address1_message").innerHTML =
+      "Enter something on address line";
+    error_flag = 1;
+    console.log(error_flag);
+  } else {
+    document.getElementById("addr1_message").innerHTML = "";
+  }
+  console.log(addr1_message);
+}
+function checkaddr2() {}
+
+function checkcity() {
+  if (document.getElementById("city").value.match(/^[ a-zA-Z3-5'-]+$/)) {
+    document.getElementById("city_message").innerHTML = "";
+  } else {
+    document.getElementById("city_message").innerHTML =
+      "Invalid characters in City name.";
+    error_flag = 1;
+  }
+}
+function checkstate() {
+  z = document.getElementById("state").value;
+  if (z == "") {
+    document.getElementById("state_message").innerHTML =
+      "Please choose a state";
+    error_flag = 1;
+  } else {
+    document.getElementById("state_message").innerHTML = "";
+  }
+}
+
+function checkuserid() {
+  passwordentry();
+  let inputElement = document.getElementById("userId");
+  let messageElement = document.getElementById("userid_message");
+  let inputValue = inputElement.value;
+  let messages = [];
+
+  // Ensure length is between 5 and 30 characters
+  if (inputValue.length < 5 || inputValue.length > 30) {
+    messages.push("User ID must be between 5 and 30 characters.");
+  }
+
+  // Ensure no spaces
+  if (/\s/.test(inputValue)) {
+    messages.push("No spaces allowed in User ID.");
+  }
+
+  // Ensure valid characters and first character is not a number
+  if (!/^(?!\d)[a-zA-Z0-9_-]{4,29}$/.test(inputValue)) {
+    messages.push(
+      "Only letters, numbers (not as the first character), underscores, and dashes are allowed."
+    );
+  }
+  // Convert to lowercase and update input field
+  inputElement.value = inputValue.toLowerCase();
+
+  // Display validation message
+  messageElement.innerHTML =
+    messages.length > 0 ? messages.join("<br>") : "User ID is valid.";
+}
