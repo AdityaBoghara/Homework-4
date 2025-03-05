@@ -70,6 +70,8 @@ Description: A patient registration form for capturing demographic and health-re
                 title="Enter your first name (1-30 characters, letters, apostrophes, and dashes only)."
                 pattern="^[a-zA-Z'-]{1,30}$"
                 onblur="checkfirstname()"
+                onfocus="checkfirstname()"
+                oninput="checkfirstname()"
               />
             </td>
             <td><span id="firstname_message"></span></td>
@@ -86,6 +88,8 @@ Description: A patient registration form for capturing demographic and health-re
                 title="Enter your middle initial (1 letter only, optional)."
                 pattern="^[a-zA-Z]?$"
                 onblur="checkmiddle()"
+                oninput="checkmiddle()"
+                onfocus="checkmiddle()"
                 
               />
             </td>
@@ -104,6 +108,8 @@ Description: A patient registration form for capturing demographic and health-re
                 title="Enter your last name (1-30 characters, letters, apostrophes, numbers (2-5, e.g., 3rd), and dashes only)."
                 pattern="^[a-zA-Z'0-9-]{1,30}$"
                 onblur="checklastname()"
+                onfocus="checklastname()"
+                oninput="checklastname()"
               />
             </td>
             <td><span id="lastname_message"></span></td>
@@ -117,13 +123,24 @@ Description: A patient registration form for capturing demographic and health-re
                 maxlength="13"
                 id="phone"
                 name="phone"
-                placeholder="(713)555-1212"
+                placeholder="715-555-1212"
                 title="Enter your phone number in the format XXX-XXX-XXXX."
                 pattern="^(\d{3}-\d{3}-\d{4}|\d{10})$"
               />
             </td>
             <td><span id="phone_message"></span></td>
           </tr>
+          <script>
+        document.getElementById('phone').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, ''); // Remove non-numeric characters
+            if (value.length > 3 && value.length <= 6) {
+                value = value.replace(/(\d{3})(\d+)/, '$1-$2');
+            } else if (value.length > 6) {
+                value = value.replace(/(\d{3})(\d{3})(\d+)/, '$1-$2-$3');
+            }
+            e.target.value = value;
+        });
+    </script>
 
           <!-- DOB and SSN -->
           <tr>
@@ -136,6 +153,9 @@ Description: A patient registration form for capturing demographic and health-re
                 required
                 title="Enter your date of birth (MM/DD/YYYY). Cannot be in the future or more than 120 years ago."
                 pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/\d{4}$"
+                onblur="validateDate(this, 'birthday')"
+                oninput="validateDate(this, 'birthday')"
+                onfocus="validateDate(this, 'birthday')"
               />
             </td>
             <td><span id="dob_message"></span></td>
@@ -156,7 +176,6 @@ Description: A patient registration form for capturing demographic and health-re
             </td>
             <td><span id="ssn_message"></span></td>
           </tr>
-
           <!-- Address Section -->
           <tr>
             <td><label for="address1">Address Line 1:</label></td>
@@ -170,6 +189,8 @@ Description: A patient registration form for capturing demographic and health-re
                 placeholder="Address 1"
                 title="Enter your street address (2-30 characters). Required."
                 onblur="checkaddr1()"
+                 onfocus="checkaddr1()"
+                  oninput="checkaddr1()"
               />
             </td>
             <td><span id="address1_message"></span></td>
@@ -200,6 +221,8 @@ Description: A patient registration form for capturing demographic and health-re
                 placeholder="City"
                 title="Enter your city name (2-30 characters)."
                 onblur="checkcity()"
+                oninput="checkcity()"
+                onfocus="checkcity()"
               />
             </td>
             <td><span id="city_message"></span></td>
@@ -213,6 +236,8 @@ Description: A patient registration form for capturing demographic and health-re
                 required
                 title="Select your state from the dropdown. Required."
                 onblur="checkstate()"
+                oninput="checkstate()"
+                onfocus="checkstate()"
               >
                 <!-- Options for states -->
                 <option value="">Select a State</option>
@@ -445,8 +470,21 @@ Description: A patient registration form for capturing demographic and health-re
                 max="10"
                 title="Move the slider to select your desired salary or home price range."
               />
+              <span id="rangedisplay"></span>
             </td>
+            
+            
           </tr>
+
+          <script>
+    var slider = document.getElementById("health");
+    var output = document.getElementById("rangedisplay");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+</script>
 
           <!-- User ID and Passwords -->
           <tr>

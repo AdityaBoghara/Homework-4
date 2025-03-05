@@ -155,3 +155,52 @@ table.form {
   border-spacing: 00px;
   color: rgb(251, 0, 0);
 }
+
+/* Style for the range input slider */
+#health {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to right, #ff4d4d, #4caf50);
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+/* Slider Thumb (for WebKit browsers) */
+#health::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 2px solid #4caf50;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+#health::-webkit-slider-thumb:hover {
+  background: #4caf50;
+}
+
+/* Slider Thumb (for Firefox) */
+#health::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 2px solid #4caf50;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Display box for slider value */
+#rangedisplay {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #4caf50;
+  text-align: center;
+}

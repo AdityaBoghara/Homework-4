@@ -233,3 +233,22 @@ function checkuserid() {
   messageElement.innerHTML =
     messages.length > 0 ? messages.join("<br>") : "User ID is valid.";
 }
+
+function validateDate(dateInput, type) {
+  const dateValue = new Date(dob.value);
+  const message = document.getElementById("dob_message");
+  const today = new Date();
+  let minDate, maxDate;
+
+  if (type === "birthday") {
+    minDate = new Date();
+    minDate.setFullYear(today.getFullYear() - 120);
+    maxDate = today;
+  }
+
+  if (dateValue < minDate || dateValue > maxDate) {
+    message.innerHTML = "Birthday cannot be in Future";
+  } else {
+    message.innerHTML = "";
+  }
+}
