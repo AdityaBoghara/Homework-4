@@ -1,3 +1,10 @@
+// Program name: patient-form.html
+// Author: Aditya Rajeshbhai Boghara
+// Date created: 01/27/2025
+// Date last edited: March 6Th 2025
+// Version: 3.1
+// Description: js file for the patient html form
+
 function getTheData() {
   var formcontents = document.getElementById("form");
   var formoutput;
