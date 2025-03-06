@@ -326,6 +326,9 @@ Description: A patient registration form for capturing demographic and health-re
                 placeholder="Email"
                 title="Enter your email in the format name@domain.tld."
                 pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                onblur="isValidEmail()"
+                oninput="isValidEmail()"
+                onfocus="isValidEmail()"
               />
               
             </td>
@@ -551,21 +554,15 @@ Description: A patient registration form for capturing demographic and health-re
           <!-- Submit and Reset Buttons -->
 
           <tr>
-            <td colspan="3">
-              <div class="button-group">
-                <button type="reset">Clear and Start Over</button>
-                <button id="submitButton" type="submit" value="submit">
-                  Submit
-                </button>
-                <input
-                  type="button"
-                  id="getdata"
-                  value="Get Data V1"
-                  onclick="getTheData()"
-                />
-              </div>
-            </td>
-          </tr>
+  <td colspan="3">
+    <div class="button-group">
+      <input type="reset" value="Clear and Start Over" class="btn reset-btn">
+      <input id="submitButton" type="submit" value="Submit" class="btn submit-btn">
+      <input type="button" id="getdata" value="Review Data" class="btn review-btn" onclick="getTheData()">
+    </div>
+  </td>
+</tr>
+
         </table>
       </form>
       <div id="outputformdata"></div>

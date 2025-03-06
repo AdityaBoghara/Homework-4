@@ -43,6 +43,14 @@ function getTheData() {
             "</td></tr>";
         }
         break;
+      case "password":
+        formoutput +=
+          "<tr><td align='right'>" + formcontents.elements[i].name + "</td>";
+        formoutput += "<td align='right'>" + datatype + "</td>";
+        leng = formcontents.elements[i].value.length;
+        formoutput +=
+          "<td class='outputdata'>" + "*".repeat(leng) + "</td></tr>";
+        break;
       case "button":
       case "submit":
       case "reset":
@@ -126,7 +134,7 @@ function checkfirstname() {
   x = document.getElementById("firstName").value;
   if (x.length < 2) {
     document.getElementById("firstname_message").innerHTML =
-      "Invalid name... too short.";
+      "Invalid firstname... too short.";
     error_flag = 1;
   } else {
     if (x.match(/[a-zA-Z3-5'-]+$/)) {
@@ -154,7 +162,7 @@ function checklastname() {
   x = document.getElementById("lastName").value;
   if (x.length < 2) {
     document.getElementById("lastname_message").innerHTML =
-      "Invalid name... too short.";
+      "Invalid lastname... too short.";
     error_flag = 1;
   } else {
     if (x.match(/[a-zA-Z3-5'-]+$/)) {
@@ -250,5 +258,33 @@ function validateDate(dateInput, type) {
     message.innerHTML = "Birthday cannot be in Future";
   } else {
     message.innerHTML = "";
+  }
+}
+
+function isValidEmail() {
+  const emailInput = document.getElementById("email");
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const emailMessage = document.getElementById("email_message");
+
+  if (!emailRegex.test(emailInput.value)) {
+    emailMessage.innerHTML = "Email is inappropriate, please re-enter.";
+    emailMessage.style.color = "red"; // Optional: Change color for visibility
+  } else {
+    emailMessage.innerHTML = "Email is valid!";
+    emailMessage.style.color = "green"; // Optional: Change color for success
+  }
+}
+
+function isValidPhoneNumber() {
+  const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
+  const phone = document.getElementById("phone");
+  const phoneMessage = document.getElementById("phone_message");
+
+  if (!phoneRegex.test(phone.value)) {
+    phoneMessage.innerHTML = "Phone Number is inappropriate, please re-enter.";
+    phoneMessage.style.color = "red"; // Optional: Change color for visibility
+  } else {
+    phoneMessage.innerHTML = "Phone Number is valid!";
+    phoneMessage.style.color = "green"; // Optional: Change color for success
   }
 }
