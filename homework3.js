@@ -1,9 +1,14 @@
 // Program name: patient-form.html
 // Author: Aditya Rajeshbhai Boghara
 // Date created: 01/27/2025
-// Date last edited: March 6Th 2025
-// Version: 3.1
+// Date last edited: March 28Th 2025
+// Version: 4.1
 // Description: js file for the patient html form
+
+function setup() {
+  var error_flag = 0;
+  console.log(error_flag);
+}
 
 function getTheData() {
   var formcontents = document.getElementById("form");
@@ -183,18 +188,34 @@ function checklastname() {
 }
 
 function checkaddr1() {
-  x = document.getElementById("address1").value;
-  console.log(x.value);
+  // x = document.getElementById("address1").value;
+  // console.log(x.value);
+  // console.log(x.length);
+  // if (x.length < 2) {
+  //   document.getElementById("address1_message").innerHTML =
+  //     "Enter something on address line";
+  //   error_flag = 1;
+  //   console.log(error_flag);
+  // } else {
+  //   document.getElementById("addr1_message").innerHTML = "";
+  // }
+
+  let x = document.getElementById("address1").value.trim(); // Use trim to remove any leading/trailing spaces
+  console.log(x);
   console.log(x.length);
+
+  // Check if the address is too short
   if (x.length < 2) {
+    // If the length is less than 2, show the error message
     document.getElementById("address1_message").innerHTML =
       "Enter something on address line";
     error_flag = 1;
     console.log(error_flag);
   } else {
-    document.getElementById("addr1_message").innerHTML = "";
+    // Otherwise, clear the error message
+    document.getElementById("address1_message").innerHTML = "";
   }
-  console.log(addr1_message);
+  // console.log(addr1_message);
 }
 function checkaddr2() {}
 
@@ -293,5 +314,76 @@ function isValidPhoneNumber() {
   } else {
     phoneMessage.innerHTML = "Phone Number is valid!";
     phoneMessage.style.color = "green"; // Optional: Change color for success
+  }
+}
+
+// Function to format the SSN as the user types (XXX-XX-XXXX)
+function formatSSN(input) {
+  // Remove all non-numeric characters
+  let ssn = input.value.replace(/\D/g, "");
+
+  // Ensure max length of 9 digits
+  if (ssn.length > 9) {
+    ssn = ssn.slice(0, 9);
+  }
+
+  // Format as XXX-XX-XXXX as the user types
+  let formattedSSN = ssn.replace(
+    /(\d{3})(\d{2})?(\d{0,4})?/,
+    (match, p1, p2, p3) => {
+      return p1 + (p2 ? "-" + p2 : "") + (p3 ? "-" + p3 : "");
+    }
+  );
+
+  input.value = formattedSSN;
+
+  // After formatting, apply the mask to hide all but the last 4 digits
+  applyMask(input);
+}
+
+// Function to apply the mask after the SSN is formatted
+function applyMask(input) {
+  if (input) {
+    // Apply the mask, ensuring that the value matches the ***-**-XXXX format
+    input.value = maskSSN(input.value);
+  }
+}
+
+// Function to mask SSN (hide all but the last 4 digits in the format ***-**-XXXX)
+function maskSSN(ssn) {
+  // Ensure input is in the expected format XXX-XX-XXXX (numeric format)
+  if (!/^\d{3}-\d{2}-\d{4}$/.test(ssn)) {
+    throw new Error("Invalid SSN format. Expected format: XXX-XX-XXXX");
+  }
+
+  // Mask all but the last 4 digits
+  return "***-**-" + ssn.slice(-4);
+}
+
+function checkform() {
+  error_flag = "0";
+  checkfirstname();
+  checkmiddle();
+  checklastname();
+  checkaddr1();
+  checkaddr2();
+  checkcity();
+  checkstate();
+  isValidEmail();
+  isValidPhoneNumber();
+  checkuserid();
+  passwordentry();
+  console.log("Error flag: " + error_flag);
+  if (error_flag == "1") {
+    alert("Please fix the indicated errors!");
+    document.getElementById("submitButton").disabled = true;
+  } else {
+    document.getElementById("submitButton").disabled = false;
+  }
+}
+
+function submitForm() {
+  if (checkform()) {
+    window.location.href = "thank-you.html";
   }
 }

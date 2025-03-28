@@ -2,8 +2,8 @@
 Program name: patient-form.html
 Author: Aditya Rajeshbhai Boghara
 Date created: 01/27/2025
-Date last edited: March 6Th 2025
-Version: 3.1
+Date last edited: March 28Th 2025
+Version: 4.1
 Description: A patient registration form for capturing demographic and health-related data.
 -->
 
@@ -14,10 +14,11 @@ Description: A patient registration form for capturing demographic and health-re
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Patient Registration Form</title>
     <link href="style.css" rel="stylesheet" />
-    <script src="./homework2.js"></script>
+    <script src="./homework3.js"></script>
     <script>
       // Dynamic date script
       function displayDate() {
+        setup()
         const options = {
           weekday: "long",
           year: "numeric",
@@ -126,6 +127,10 @@ Description: A patient registration form for capturing demographic and health-re
                 placeholder="715-555-1212"
                 title="Enter your phone number in the format XXX-XXX-XXXX."
                 pattern="^(\d{3}-\d{3}-\d{4}|\d{10})$"
+
+                onblur="isValidPhoneNumber()"
+                onfocus="isValidPhoneNumber()"
+                oninput="isValidPhoneNumber()"
               />
             </td>
             <td><span id="phone_message"></span></td>
@@ -160,18 +165,21 @@ Description: A patient registration form for capturing demographic and health-re
             </td>
             <td><span id="dob_message"></span></td>
           </tr>
+          
           <tr>
             <td><label for="ssn">Social Security:</label></td>
             <td>
               <input
-                type="password"
+                type="text"
                 id="ssn"
                 name="ssn"
-                maxlength="11"
+                maxlength="12"
                 required
                 placeholder="SSN"
                 title="Enter your Social Security Number (SSN) in the format XXX-XX-XXXX. Field is required and will be hidden."
-                pattern="^\d{3}-\d{2}-\d{4}$"
+                pattern="^\*{3}-\*{2}-\d{4}$"
+                oninput="formatSSN(this)"
+                onblur="applyMask()"
               />
             </td>
             <td><span id="ssn_message"></span></td>
@@ -552,13 +560,15 @@ Description: A patient registration form for capturing demographic and health-re
     </tr>
 
           <!-- Submit and Reset Buttons -->
+    <p id="error-msg" style="color: red;"></p>
 
           <tr>
   <td colspan="3">
     <div class="button-group">
       <input type="reset" value="Clear and Start Over" class="btn reset-btn">
-      <input id="submitButton" type="submit" value="Submit" class="btn submit-btn">
+      <input id="submitButton" type="submit" value="Submit" class="btn submit-btn" onclick="submitForm()">
       <input type="button" id="getdata" value="Review Data" class="btn review-btn" onclick="getTheData()">
+      <input type="button" id="validateButton" value="Validate the Data" class="btn review-btn" onclick="checkform()">
     </div>
   </td>
 </tr>
