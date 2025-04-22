@@ -2,7 +2,7 @@
 Program name: patient-form.html
 Author: Aditya Rajeshbhai Boghara
 Date created: 01/27/2025
-Date last edited: March 28Th 2025
+Date last edited: April 22nd 2025
 Version: 4.1
 Description: A patient registration form for capturing demographic and health-related data.
 -->
@@ -14,7 +14,7 @@ Description: A patient registration form for capturing demographic and health-re
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Patient Registration Form</title>
     <link href="style.css" rel="stylesheet" />
-    <script src="./homework3.js"></script>
+    <script src="./homework4.js"></script>
     <script>
       // Dynamic date script
       function displayDate() {
@@ -40,20 +40,22 @@ Description: A patient registration form for capturing demographic and health-re
       });
     </script>
   </head>
-  <body onload="displayDate()">
+  <body onload="displayDate(); checkUserCookie();">
     <header>
       <div class="banner">
         <div class="logo-container">
           <img src="patelMedical.png" alt="Company Logo" class="logo" />
           <h1>Patel Medical</h1>
         </div>
+        <h2 id="welcomeMessage">Welcome</h2>
         <p>Today is: <span id="currentDate"></span></p>
+    <div id="newUserOption" style="margin-top: 10px;"></div>
       </div>
     </header>
 
     <main>
       <h2>Patient Registration Form</h2>
-      <form id="form" name="form">
+      <form id="form" name="form" onsubmit="return handleFormSubmit()">
         <table>
           <!-- Name Section -->
           <tr>
@@ -114,6 +116,14 @@ Description: A patient registration form for capturing demographic and health-re
               />
             </td>
             <td><span id="lastname_message"></span></td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+        <input type="checkbox" id="rememberMe" checked>
+        Remember Me
+      </label>
+            </td>
           </tr>
           <tr>
             <td><label for="phonenumber">Phone Number:</label></td>
@@ -576,6 +586,22 @@ Description: A patient registration form for capturing demographic and health-re
         </table>
       </form>
       <div id="outputformdata"></div>
+      <h3>Visit Our Clinic Location</h3>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110914.21079005869!2d-95.44633335298614!3d29.68877660966825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640bf0647b2ef23%3A0xe307e33ae5815fcf!2sRiverside%20General%20Hospital!5e0!3m2!1sen!2sus!4v1745335080307!5m2!1sen!2sus" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+<h3>Learn More About Preventive Care Benefits</h3>
+<iframe 
+  src="https://www.cdc.gov" 
+  width="100%" 
+  height="600" 
+  style="border: 2px solid #ccc; border-radius: 10px;" 
+  title="CDC Website">
+</iframe>
+
+
+
+
+
     </main>
 
     <footer>

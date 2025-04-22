@@ -1,7 +1,7 @@
 // Program name: patient-form.html
 // Author: Aditya Rajeshbhai Boghara
 // Date created: 01/27/2025
-// Date last edited: March 28Th 2025
+// Date last edited: April 22nd 2025
 // Version: 4.1
 // Description: js file for the patient html form
 
@@ -386,4 +386,72 @@ function submitForm() {
   if (checkform()) {
     window.location.href = "thank-you.html";
   }
+}
+
+function setCookie(name, value, hours) {
+  const d = new Date();
+  d.setTime(d.getTime() + hours * 60 * 60 * 1000);
+  const expires = "expires=" + d.toUTCString();
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookie(name) {
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const cookies = decodedCookie.split(";");
+  for (let i = 0; i < cookies.length; i++) {
+    let c = cookies[i].trim();
+    if (c.indexOf(name + "=") === 0) {
+      return c.substring(name.length + 1);
+    }
+  }
+  return "";
+}
+
+function deleteCookie(name) {
+  document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+function checkUserCookie() {
+  const user = getCookie("firstName");
+  const welcomeEl = document.getElementById("welcomeMessage");
+  const inputEl = document.getElementById("firstName");
+  const optionEl = document.getElementById("newUserOption");
+
+  if (user !== "") {
+    welcomeEl.textContent = `Welcome back, ${user}`;
+    inputEl.value = user;
+
+    optionEl.innerHTML = `
+          <label>
+            <input type="checkbox" id="resetUser" onchange="resetToNewUser('${user}')">
+            Not ${user}? Click HERE to start as a NEW USER.
+          </label>
+        `;
+  } else {
+    welcomeEl.textContent = "Hello New User!";
+  }
+}
+
+function resetToNewUser(user) {
+  const inputEl = document.getElementById("firstName");
+  const checkbox = document.getElementById("resetUser");
+
+  if (checkbox.checked) {
+    deleteCookie("firstName");
+    inputEl.value = "";
+    location.reload();
+  }
+}
+
+function handleFormSubmit() {
+  const name = document.getElementById("firstName").value.trim();
+  const remember = document.getElementById("rememberMe").checked;
+
+  if (remember) {
+    setCookie("firstName", name, 48); // 48 hours
+  } else {
+    deleteCookie("firstName");
+  }
+
+  return true; // allow form to submit
 }

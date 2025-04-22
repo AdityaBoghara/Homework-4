@@ -2,8 +2,8 @@
 Program name: style.css
 Author: Aditya Rajeshbhai Boghara
 Date created: 01/27/2025
-Date last edited: March 28, 2025
-Version: 2.0
+Date last edited: April 22nd, 2025
+Version: 4.0
 Description: Styles for patient registration form.
 */
 
@@ -19,20 +19,27 @@ body {
 }
 
 /* Header Styles */
+
+header {
+  position: sticky;
+  top: 0;
+}
+
 header .banner {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: center; /* Center the items vertically */
+  justify-content: space-between; /* Distribute space between items */
   background-color: #0078d4;
   color: white;
-  padding: 1rem;
-  text-align: center;
+  padding: 1rem 2rem; /* Add some horizontal padding for spacing */
+  text-align: justify; /* Ensure content is spread across */
 }
 
 header .banner .logo-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 header .banner img.logo {
@@ -126,11 +133,15 @@ form button:hover {
 
 /* Footer Styles */
 footer {
-  text-align: center;
   background: #333;
   color: white;
   padding: 10px 0;
   margin-top: 30px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
 }
 
 footer button {
